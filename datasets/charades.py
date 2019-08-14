@@ -78,7 +78,8 @@ import matplotlib.pyplot as plt
 import matplotlib.mlab as mlab
 import torchsummary
 import logging
-
+import sys
+sys.path.append('../../')
 from core import const as c
 from core import utils, image_utils, config_utils
 
