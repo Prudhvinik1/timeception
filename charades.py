@@ -740,7 +740,7 @@ def extract_features_i3d_charades():
     n_frames_in = 1024
     n_frames_out = 128
     n_splits_per_video = 2
-    /content/Charades
+    
     root_path = '/content/timeception/data'
     frames_annot_path = '%/content/Charades/frames_dict_untrimmed_multi_label_i3d_%d_frames.pkl' % (n_frames_in)
     model_path = '%s/charades/baseline_models/i3d/rgb_charades.pt' % (root_path)
