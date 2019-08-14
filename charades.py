@@ -375,7 +375,7 @@ def __get_frame_names_from_csv_file(annot_text_path, min_frames_per_video, max_f
             frames_relative_root_path = 'Charades_v1_rgb/%s' % (video_id)
             frames_root_path = '%s/%s' % (root_path, frames_relative_root_path)
 
-            frame_names = utils.file_names(frames_root_path, nat_sorted=True)
+            frame_names = utils.file_names(frames_root_path, is_nat_sort=True)
             n_frames = len(frame_names)
             counts_before.append(n_frames)
 
@@ -430,7 +430,7 @@ def __get_frame_names_untrimmed_from_csv_file_for_ordered(annot_text_path, n_fra
 
             video_id = row['id']
             frames_root_path = '%s/Charades_v1_rgb/%s' % (root_path, video_id)
-            video_frame_names = utils.file_names(frames_root_path, nat_sorted=True)
+            video_frame_names = utils.file_names(frames_root_path, is_nat_sort=True)
 
             if is_resnet:
                 video_frame_names = __sample_frames_ordered_for_resnet(video_frame_names, n_frames_per_video)
@@ -477,7 +477,7 @@ def __get_frame_names_untrimmed_from_csv_file_for_i3d(annot_text_path, n_frames_
             # get all frames of the video
             frames_relative_root_path = 'Charades_v1_rgb/%s' % (video_id)
             frames_root_path = '%s/%s' % (root_path, frames_relative_root_path)
-            video_frame_names = utils.file_names(frames_root_path, nat_sorted=True)
+            video_frame_names = utils.file_names(frames_root_path, is_nat_sort=True)
 
             # sample from these frames
             video_frame_names = __sample_frames_for_i3d(video_frame_names, n_frames_per_video)
@@ -598,7 +598,7 @@ def __count_time_in_each_video(is_training=True):
 
             frames_relative_root_path = 'Charades_v1_rgb/%s' % (video_id)
             frames_root_path = '%s/%s' % (root_path, frames_relative_root_path)
-            frame_names = utils.file_names(frames_root_path, nat_sorted=True)
+            frame_names = utils.file_names(frames_root_path, is_nat_sort=True)
 
             frames_per_video = 0
             time_per_video = 0
@@ -696,7 +696,7 @@ def __get_frames_relative_pathes_in_given_duration(video_id, start_time_in_sec, 
     root_path = '/content/'
     frames_relative_root_path = 'Charades_v1_rgb/%s' % (video_id)
     frames_root_path = '%s/%s' % (root_path, frames_relative_root_path)
-    frame_names = utils.file_names(frames_root_path, nat_sorted=True)
+    frame_names = utils.file_names(frames_root_path, is_nat_sort=True)
 
     idx_start = __convert_seconds_to_frame_idx(start_time_in_sec)
     idx_stop = __convert_seconds_to_frame_idx(stop_time_in_sec)
@@ -713,7 +713,7 @@ def __get_frames_names_in_given_duration(video_id, start_time_in_sec, stop_time_
     root_path = '/content/'
     frames_relative_root_path = 'Charades_v1_rgb/%s' % (video_id)
     frames_root_path = '%s/%s' % (root_path, frames_relative_root_path)
-    frame_names = utils.file_names(frames_root_path, nat_sorted=True)
+    frame_names = utils.file_names(frames_root_path, is_nat_sort=True)
 
     idx_start = __convert_seconds_to_frame_idx(start_time_in_sec)
     idx_stop = __convert_seconds_to_frame_idx(stop_time_in_sec)
