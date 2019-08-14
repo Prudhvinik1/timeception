@@ -760,9 +760,11 @@ def extract_features_i3d_charades():
     n_frames_per_segment = 8
     assert n_frames_per_segment * n_frames_out == n_frames_in
 
-    if not is_local_machine and not os.path.exists(features_root_path):
-        print('Sorry, path does not exist: %s' % (features_root_path))
-        return
+    if not os.path.exists(features_root_path):
+        os.makedirs(features_root_path)
+#     if not is_local_machine and not os.path.exists(features_root_path):
+#         print('Sorry, path does not exist: %s' % (features_root_path))
+#         return
 
     t1 = time.time()
     print('extracting training features')
