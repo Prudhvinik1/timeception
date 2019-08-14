@@ -462,7 +462,7 @@ class AsyncVideoReaderCharadesForI3DTorchModel():
         self.__n_threads_in_pool = n_threads
         self.__pool = Pool(self.__n_threads_in_pool)
 
-    def load_imgs_in_batch(self, image_pathes):
+    def load_video_frames_in_batch(self, image_pathes):
         self.__is_busy = True
 
         n_pathes = len(image_pathes)
