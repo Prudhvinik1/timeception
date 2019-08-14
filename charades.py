@@ -741,11 +741,11 @@ def extract_features_i3d_charades():
     n_frames_out = 128
     n_splits_per_video = 2
 
-    root_path = '/content/'
+    root_path = '/content/timeception/data'
     frames_annot_path = '%s/charades/annotation/frames_dict_untrimmed_multi_label_i3d_%d_frames.pkl' % (root_path, n_frames_in)
     model_path = '%s/charades/baseline_models/i3d/rgb_charades.pt' % (root_path)
     frames_root_path = '%s/charades/frames/Charades_v1_rgb' % (root_path)
-    features_root_path = '/local-ssd/nhussein/Charades/features_i3d_charades_rgb_mixed_5c_untrimmed_%d_frames' % (n_frames_out)
+    features_root_path = '/content/Charades/features_i3d_charades_rgb_mixed_5c_untrimmed_%d_frames' % (n_frames_out)
 
     (video_frames_dict_tr, video_frames_dict_te) = utils.pkl_load(frames_annot_path)
     video_frames_dict = dict()
