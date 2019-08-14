@@ -95,9 +95,10 @@ N_FRAMES_PER_SECOND = 24
 # region Prepare Annotation
 
 def _01_prepare_annotation_class_names():
-    root_path = c.data_root_path
-    annot_text_path = '%s/Charades/annotation/Charades_v1_classes.txt' % (root_path)
-    annot_pkl_path = '%s/Charades/annotation/class_names.pkl' % (root_path)
+    #root_path = c.data_root_path
+    root_path = '/content/'
+    annot_text_path = '%s/Charades/Charades_v1_classes.txt' % (root_path)
+    annot_pkl_path = '%s/Charades/class_names.pkl' % (root_path)
 
     class_names = utils.txt_load(annot_text_path)
 
@@ -112,11 +113,12 @@ def _01_prepare_annotation_class_names():
     _ = 10
 
 def _02_prepare_annotation_frame_dict(is_training=True):
-    root_path = c.data_root_path
-    annot_tr_text_path = '%s/Charades/annotation/Charades_v1_train.csv' % (root_path)
-    annot_te_text_path = '%s/Charades/annotation/Charades_v1_test.csv' % (root_path)
-    annotation_pkl_tr_path = '%s/Charades/annotation/frames_dict_tr.pkl' % (root_path)
-    annotation_pkl_te_path = '%s/Charades/annotation/frames_dict_te.pkl' % (root_path)
+    #root_path = c.data_root_path
+    root_path = '/content/'
+    annot_tr_text_path = '%s/Charades/Charades_v1_train.csv' % (root_path)
+    annot_te_text_path = '%s/Charades/Charades_v1_test.csv' % (root_path)
+    annotation_pkl_tr_path = '%s/Charades/frames_dict_tr.pkl' % (root_path)
+    annotation_pkl_te_path = '%s/Charades/frames_dict_te.pkl' % (root_path)
 
     annot_text_path = annot_tr_text_path if is_training else annot_te_text_path
     annotation_pkl_path = annotation_pkl_tr_path if is_training else annotation_pkl_te_path
@@ -169,10 +171,11 @@ def _03_prepare_annotation_frame_list():
     n_frames_per_sample = 20
     n_classes = N_CLASSES
 
-    root_path = c.data_root_path
-    annotation_dict_tr_path = '%s/Charades/annotation/frames_dict_tr.pkl' % (root_path)
-    annotation_dict_te_path = '%s/Charades/annotation/frames_dict_te.pkl' % (root_path)
-    annotation_list_path = '%s/Charades/annotation/frames_list_%d_frames.pkl' % (root_path, n_frames_per_sample)
+    #root_path = c.data_root_path
+    root_path = '/content/'
+    annotation_dict_tr_path = '%s/Charades/frames_dict_tr.pkl' % (root_path)
+    annotation_dict_te_path = '%s/Charades/frames_dict_te.pkl' % (root_path)
+    annotation_list_path = '%s/Charades/frames_list_%d_frames.pkl' % (root_path, n_frames_per_sample)
 
     annotation_dict_tr = utils.pkl_load(annotation_dict_tr_path)
     annotation_dict_te = utils.pkl_load(annotation_dict_te_path)
@@ -228,9 +231,9 @@ def _03_prepare_annotation_frame_list():
     utils.pkl_dump(data, annotation_list_path, is_highest=True)
 
 def _06_prepare_video_annotation_multi_label():
-    root_path = '.'
-    video_annotation_path = '%s/Charades/annotation/video_annotation.pkl' % (root_path)
-    video_annotation_multi_label_path = '%s/Charades/annotation/video_annotation_multi_label.pkl' % (root_path)
+    root_path = '/content/'
+    video_annotation_path = '%s/Charades/video_annotation.pkl' % (root_path)
+    video_annotation_multi_label_path = '%s/Charades/video_annotation_multi_label.pkl' % (root_path)
 
     (video_id_tr, y_tr, video_id_te, y_te) = utils.pkl_load(video_annotation_path)
 
@@ -282,10 +285,11 @@ def _08_prepare_annotation_frames_per_video_dict_multi_label():
     min_frames_per_video = 100
     max_frames_per_video = 100
 
-    root_path = c.data_root_path
-    annot_tr_text_path = '%s/Charades/annotation/Charades_v1_train.csv' % (root_path)
-    annot_te_text_path = '%s/Charades/annotation/Charades_v1_test.csv' % (root_path)
-    annotation_path = '%s/Charades/annotation/frames_dict_multi_label.pkl' % (root_path)
+    #root_path = c.data_root_path
+    root_path = '/content/'
+    annot_tr_text_path = '%s/Charades/Charades_v1_train.csv' % (root_path)
+    annot_te_text_path = '%s/Charades/Charades_v1_test.csv' % (root_path)
+    annotation_path = '%s/Charades/frames_dict_multi_label.pkl' % (root_path)
 
     video_frames_dict_tr = __get_frame_names_from_csv_file(annot_tr_text_path, min_frames_per_video, max_frames_per_video)
     video_frames_dict_te = __get_frame_names_from_csv_file(annot_te_text_path, min_frames_per_video, max_frames_per_video)
@@ -298,10 +302,11 @@ def _12_prepare_annotation_frames_per_video_dict_multi_label_all_frames():
     """
 
     n_frames_per_video = None
-    root_path = c.data_root_path
-    annot_tr_text_path = '%s/Charades/annotation/Charades_v1_train.csv' % (root_path)
-    annot_te_text_path = '%s/Charades/annotation/Charades_v1_test.csv' % (root_path)
-    annotation_path = '%s/Charades/annotation/frames_dict_multi_label_all_frames.pkl' % (root_path)
+    root_path = '/content/'
+    #root_path = c.data_root_path
+    annot_tr_text_path = '%s/Charades/Charades_v1_train.csv' % (root_path)
+    annot_te_text_path = '%s/Charades/Charades_v1_test.csv' % (root_path)
+    annotation_path = '%s/Charades/frames_dict_multi_label_all_frames.pkl' % (root_path)
 
     video_frames_dict_tr = __get_frame_names_from_csv_file(annot_tr_text_path, n_frames_per_video, n_frames_per_video, sampling=False)
     video_frames_dict_te = __get_frame_names_from_csv_file(annot_te_text_path, n_frames_per_video, n_frames_per_video, sampling=False)
@@ -313,12 +318,13 @@ def _13_prepare_annotation_frames_per_video_dict_untrimmed_multi_label_for_i3d()
     Uniformly sample sequences of frames form each video. Each sequences consists of 8 successive frames.
     """
     n_frames_per_video = 1024
-    n_frames_per_video = 128
-    n_frames_per_video = 256
-    root_path = c.data_root_path
-    annot_tr_text_path = '%s/Charades/annotation/Charades_v1_train.csv' % (root_path)
-    annot_te_text_path = '%s/Charades/annotation/Charades_v1_test.csv' % (root_path)
-    annotation_path = '%s/Charades/annotation/frames_dict_untrimmed_multi_label_i3d_%d_frames.pkl' % (root_path, n_frames_per_video)
+    #n_frames_per_video = 128
+    #n_frames_per_video = 256
+    #root_path = c.data_root_path
+    root_path = '/content/'
+    annot_tr_text_path = '%s/Charades/Charades_v1_train.csv' % (root_path)
+    annot_te_text_path = '%s/Charades/Charades_v1_test.csv' % (root_path)
+    annotation_path = '%s/Charades/frames_dict_untrimmed_multi_label_i3d_%d_frames.pkl' % (root_path, n_frames_per_video)
 
     video_frames_dict_tr = __get_frame_names_untrimmed_from_csv_file_for_i3d(annot_tr_text_path, n_frames_per_video)
     video_frames_dict_te = __get_frame_names_untrimmed_from_csv_file_for_i3d(annot_te_text_path, n_frames_per_video)
@@ -333,10 +339,11 @@ def _14_prepare_annotation_frames_per_video_dict_untrimmed_multi_label_for_resne
 
     # if required frames per video are 128, there are 51/6 out of 7986/1864 videos in training/testing splits that don't satisfy this
     n_frames_per_video = 32
-    root_path = c.data_root_path
-    annot_tr_text_path = '%s/Charades/annotation/Charades_v1_train.csv' % (root_path)
-    annot_te_text_path = '%s/Charades/annotation/Charades_v1_test.csv' % (root_path)
-    annotation_path = '%s/Charades/annotation/frames_dict_untrimmed_multi_label_resnet_ordered_%d_frames.pkl' % (root_path, n_frames_per_video)
+    #root_path = c.data_root_path
+    root_path = '/content/'
+    annot_tr_text_path = '%s/Charades/Charades_v1_train.csv' % (root_path)
+    annot_te_text_path = '%s/Charades/Charades_v1_test.csv' % (root_path)
+    annotation_path = '%s/Charades/frames_dict_untrimmed_multi_label_resnet_ordered_%d_frames.pkl' % (root_path, n_frames_per_video)
 
     video_frames_dict_tr = __get_frame_names_untrimmed_from_csv_file_for_ordered(annot_tr_text_path, n_frames_per_video, is_resnet=True)
     video_frames_dict_te = __get_frame_names_untrimmed_from_csv_file_for_ordered(annot_te_text_path, n_frames_per_video, is_resnet=True)
@@ -344,7 +351,8 @@ def _14_prepare_annotation_frames_per_video_dict_untrimmed_multi_label_for_resne
     utils.pkl_dump((video_frames_dict_tr, video_frames_dict_te), annotation_path, is_highest=True)
 
 def __get_frame_names_from_csv_file(annot_text_path, min_frames_per_video, max_frames_per_video, sampling=True):
-    root_path = c.data_root_path
+    #root_path = c.data_root_path
+    root_path = '/content/'
     counts_before = []
     counts_after = []
     count = 0
@@ -363,7 +371,7 @@ def __get_frame_names_from_csv_file(annot_text_path, min_frames_per_video, max_f
             if len(action_strings) == 0:
                 continue
 
-            frames_relative_root_path = 'Charades/frames/Charades_v1_rgb/%s' % (video_id)
+            frames_relative_root_path = 'Charades_v1_rgb/%s' % (video_id)
             frames_root_path = '%s/%s' % (root_path, frames_relative_root_path)
 
             frame_names = utils.file_names(frames_root_path, nat_sorted=True)
@@ -402,7 +410,8 @@ def __get_frame_names_untrimmed_from_csv_file_for_ordered(annot_text_path, n_fra
     count = 0
     video_frames_dict = dict()
 
-    root_path = c.data_root_path
+    #root_path = c.data_root_path
+    root_path = '/content/'
     n_lines = len(open(annot_text_path).readlines())
 
     with open(annot_text_path) as f:
@@ -419,7 +428,7 @@ def __get_frame_names_untrimmed_from_csv_file_for_ordered(annot_text_path, n_fra
                 continue
 
             video_id = row['id']
-            frames_root_path = '%s/Charades/frames/Charades_v1_rgb/%s' % (root_path, video_id)
+            frames_root_path = '%s/Charades_v1_rgb/%s' % (root_path, video_id)
             video_frame_names = utils.file_names(frames_root_path, nat_sorted=True)
 
             if is_resnet:
@@ -445,7 +454,8 @@ def __get_frame_names_untrimmed_from_csv_file_for_ordered(annot_text_path, n_fra
 def __get_frame_names_untrimmed_from_csv_file_for_i3d(annot_text_path, n_frames_per_video):
     count = 0
     video_frames_dict = dict()
-    root_path = c.data_root_path
+    #root_path = c.data_root_path
+    root_path = '/content/'
 
     n_lines = len(open(annot_text_path).readlines())
 
@@ -464,7 +474,7 @@ def __get_frame_names_untrimmed_from_csv_file_for_i3d(annot_text_path, n_frames_
                 continue
 
             # get all frames of the video
-            frames_relative_root_path = 'Charades/frames/Charades_v1_rgb/%s' % (video_id)
+            frames_relative_root_path = 'Charades_v1_rgb/%s' % (video_id)
             frames_root_path = '%s/%s' % (root_path, frames_relative_root_path)
             video_frame_names = utils.file_names(frames_root_path, nat_sorted=True)
 
@@ -558,9 +568,10 @@ def __sample_frames_for_i3d(frames, n_required):
     return sampled_frames
 
 def __count_time_in_each_video(is_training=True):
-    root_path = c.data_root_path
-    annot_tr_text_path = '%s/Charades/annotation/Charades_v1_train.csv' % (root_path)
-    annot_te_text_path = '%s/Charades/annotation/Charades_v1_test.csv' % (root_path)
+    #root_path = c.data_root_path
+    root_path = '/content/'
+    annot_tr_text_path = '%s/Charades/Charades_v1_train.csv' % (root_path)
+    annot_te_text_path = '%s/Charades/Charades_v1_test.csv' % (root_path)
 
     annot_text_path = annot_tr_text_path if is_training else annot_te_text_path
     frames_per_instance = []
@@ -584,7 +595,7 @@ def __count_time_in_each_video(is_training=True):
                 print('... no action for video %s' % (video_id))
                 continue
 
-            frames_relative_root_path = 'Charades/frames/Charades_v1_rgb/%s' % (video_id)
+            frames_relative_root_path = 'Charades_v1_rgb/%s' % (video_id)
             frames_root_path = '%s/%s' % (root_path, frames_relative_root_path)
             frame_names = utils.file_names(frames_root_path, nat_sorted=True)
 
@@ -634,8 +645,9 @@ def __count_time_in_each_video(is_training=True):
     print(count)
 
 def __count_how_many_videos_per_class():
-    root_path = c.data_root_path
-    annotation_path = '%s/Charades/annotation/video_annotation.pkl' % (root_path)
+    #root_path = c.data_root_path
+    root_path = '/content/'
+    annotation_path = '%s/Charades/video_annotation.pkl' % (root_path)
     (video_id_tr, y_tr, video_id_te, y_te) = utils.pkl_load(annotation_path)
     n_classes = N_CLASSES
 
@@ -660,8 +672,9 @@ def __count_how_many_videos_per_class():
 
 def __test_video_names_in_annotation_list():
     n_frames_per_sample = 20
-    root_path = c.data_root_path
-    annotation_path = '%s/Charades/annotation/frames_list_%d_frames.pkl' % (root_path, n_frames_per_sample)
+    root_path = '/content/'
+    #root_path = c.data_root_path
+    annotation_path = '%s/Charades/frames_list_%d_frames.pkl' % (root_path, n_frames_per_sample)
 
     (x_tr, y_tr, x_te, y_te) = utils.pkl_load(annotation_path)
     x = np.vstack((x_tr, x_te))
@@ -678,8 +691,9 @@ def __get_frames_relative_pathes_in_given_duration(video_id, start_time_in_sec, 
     """
     For a given video_id with start and stop time in seconds, get the relative pathes of the related frames.
     """
-    root_path = c.data_root_path
-    frames_relative_root_path = 'Charades/frames/Charades_v1_rgb/%s' % (video_id)
+    #root_path = c.data_root_path
+    root_path = '/content/'
+    frames_relative_root_path = 'Charades_v1_rgb/%s' % (video_id)
     frames_root_path = '%s/%s' % (root_path, frames_relative_root_path)
     frame_names = utils.file_names(frames_root_path, nat_sorted=True)
 
@@ -694,8 +708,9 @@ def __get_frames_names_in_given_duration(video_id, start_time_in_sec, stop_time_
     """
     For a given video_id with start and stop time in seconds, get the relative pathes of the related frames.
     """
-    root_path = c.data_root_path
-    frames_relative_root_path = 'Charades/frames/Charades_v1_rgb/%s' % (video_id)
+    #root_path = c.data_root_path
+    root_path = '/content/'
+    frames_relative_root_path = 'Charades_v1_rgb/%s' % (video_id)
     frames_root_path = '%s/%s' % (root_path, frames_relative_root_path)
     frame_names = utils.file_names(frames_root_path, nat_sorted=True)
 
@@ -725,7 +740,7 @@ def extract_features_i3d_charades():
     n_frames_out = 128
     n_splits_per_video = 2
 
-    root_path = './data'
+    root_path = '/content/'
     frames_annot_path = '%s/charades/annotation/frames_dict_untrimmed_multi_label_i3d_%d_frames.pkl' % (root_path, n_frames_in)
     model_path = '%s/charades/baseline_models/i3d/rgb_charades.pt' % (root_path)
     frames_root_path = '%s/charades/frames/Charades_v1_rgb' % (root_path)
@@ -873,5 +888,5 @@ def __pre_process_for_charades(img):
     img[:, :, 2] = (img[:, :, 2] - __img_mean[2]) / __img_std[2]
 
     return img
-
+_13_prepare_annotation_frames_per_video_dict_untrimmed_multi_label_for_i3d()
 # endregion
