@@ -82,7 +82,7 @@ import sys
 sys.path.append('../../')
 from core import const as c
 from core import utils, image_utils, config_utils
-
+from nets import i3d_torch_charades_utils as k
 logger = logging.getLogger(__name__)
 
 # region Constants
@@ -778,7 +778,7 @@ def extract_features_i3d_charades():
     video_reader_tr.load_video_frames_in_batch(video_group_frames)
 
     # load the model
-    model = i3d_factory.load_model_i3d_charades_rgb_for_testing(model_path)
+    model = k.load_model_i3d_charades_rgb_for_testing(model_path)
     print(torchsummary.summary(model, input_size=(3, 8, 224, 224)))
 
     # import torchsummary
