@@ -504,6 +504,9 @@ class AsyncVideoReaderCharadesForI3DTorchModel():
 
         img = cv2.imread(path)
         img = img.astype(np.float32)
+        dim = (224, 224)
+        # resize image
+        img = cv2.resize(img, dim)
         # normalize such that values range from -1 to 1
         img /= float(127.5)
         img -= 1.0
