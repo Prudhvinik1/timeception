@@ -791,9 +791,9 @@ def extract_features_i3d_charades():
         video_num = idx_video + 1
         video_name = video_names[idx_video]
 
-        if begin_num is not None and end_num is not None:
-            if video_num <= begin_num or video_num > end_num:
-                continue
+#         if begin_num is not None and end_num is not None:
+#             if video_num <= begin_num or video_num > end_num:
+#                 continue
 
         # wait until the image_batch is loaded
         t1 = time.time()
