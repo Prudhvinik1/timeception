@@ -743,7 +743,7 @@ def extract_features_i3d_charades():
     
     root_path = '/content/timeception/data'
     frames_annot_path = '/content/Charades/frames_dict_untrimmed_multi_label_i3d_%d_frames.pkl' % (n_frames_in)
-    model_path = '%s/charades/baseline_models/i3d/rgb_charades.pt' % (root_path)
+    model_path = '/content/rgb_charades.pt' 
     frames_root_path = '/content/Charades_v1_rgb' 
     features_root_path = '/content/Charades/features_i3d_charades_rgb_mixed_5c_untrimmed_%d_frames' % (n_frames_out)
 
