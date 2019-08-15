@@ -891,6 +891,6 @@ def __pre_process_for_charades(img):
     img[:, :, 2] = (img[:, :, 2] - __img_mean[2]) / __img_std[2]
 
     return img
-_13_prepare_annotation_frames_per_video_dict_untrimmed_multi_label_for_i3d()
+#_13_prepare_annotation_frames_per_video_dict_untrimmed_multi_label_for_i3d()
 extract_features_i3d_charades()
 # endregion
