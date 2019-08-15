@@ -783,7 +783,7 @@ def extract_features_i3d_charades():
 
     # import torchsummary
     # print torchsummary.summary(model, (8, 3, 224, 224))
-    return
+    #return
 
     # loop on list of videos
     for idx_video in range(n_videos):
