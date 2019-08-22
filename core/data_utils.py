@@ -169,8 +169,9 @@ class DataGeneratorCharades(keras.utils.Sequence):
         self.dataset_name = 'charades'
 
         # load annotation
-        root_path = './data/charades'
+        root_path = '/content/timeception/data/charades'
         annotation_path = '%s/annotation/video_annotation.pkl' % (root_path)
+        #/content/timeception/data/charades/annotation/video_annotation.pkl
         if self.is_training:
             (video_names, y, _, _) = utils.pkl_load(annotation_path)
         else:
@@ -250,7 +251,7 @@ class DatasetCharades(torch.utils.data.Dataset):
         self.dataset_name = 'charades'
 
         # load annotation
-        root_path = './data/charades'
+        root_path = '/content/timeception/data/charades'
         annotation_path = '%s/annotation/video_annotation.pkl' % (root_path)
         if self.is_training:
             (video_names, y, _, _) = utils.pkl_load(annotation_path)
