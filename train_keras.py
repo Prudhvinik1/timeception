@@ -191,7 +191,7 @@ def __main():
     """
 
     default_config_file = 'charades_i3d_tc4_f1024.yaml'
-    default_config_file = 'charades_i3d_tc2_f256.yaml'
+    #default_config_file = 'charades_i3d_tc2_f256.yaml'
 
     # Parse the arguments
     parser = OptionParser()
@@ -206,7 +206,7 @@ def __main():
         config_file = default_config_file
 
     # path of config file
-    config_path = './configs/%s' % (config_file)
+    config_path = '/content/timeception/config/%s' % (config_file)
 
     # check if file exist
     if not os.path.exists(config_path):
