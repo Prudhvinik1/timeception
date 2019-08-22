@@ -152,7 +152,7 @@ def map_charades(y_true, y_pred):
 class SaveCallback(Callback):
     def __init__(self, dataset_name, model_name):
         self.model_name = model_name
-
+        print("model_name")
         model_root_path = './data/%s/models' % (dataset_name)
         assert os.path.exists(model_root_path)
 
