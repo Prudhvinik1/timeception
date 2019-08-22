@@ -841,9 +841,9 @@ def extract_features_i3d_charades():
 
         # path to save the features
         video_features_path = '%s/%s.pkl' % (features_root_path, video_name)
-        # if os.path.exists(video_features_path):
-        #     print ('... features for video already exist: %s.pkl' % (video_name))
-        #     continue
+        if os.path.exists(video_features_path):
+            print ('... features for video already exist: %s.pkl' % (video_name))
+            continue
 
         # save features
         utils.pkl_dump(features, video_features_path, is_highest=True)
