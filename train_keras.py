@@ -206,7 +206,7 @@ def __main():
         config_file = default_config_file
 
     # path of config file
-    config_path = '/content/timeception/config/%s' % (config_file)
+    config_path = '/content/timeception/configs/%s' % (config_file)
 
     # check if file exist
     if not os.path.exists(config_path):
