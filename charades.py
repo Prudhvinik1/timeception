@@ -804,7 +804,10 @@ def extract_features_i3d_charades():
         duration_waited = t2 - t1
 
         print('... video %04d, %04d, waited: %.02f' % (video_num, n_videos, duration_waited))
-
+        video_features_path = '%s/%s.pkl' % (features_root_path, video_name)
+        if os.path.exists(video_features_path):
+            print ('... features for video already exist: %s.pkl' % (video_name))
+            continue
         # get the frames
         frames = video_reader_tr.get_images()  # (G*T*N, 224, 224, 3)
 
