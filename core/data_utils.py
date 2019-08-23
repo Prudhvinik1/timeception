@@ -169,8 +169,8 @@ class DataGeneratorCharades(keras.utils.Sequence):
         self.dataset_name = 'charades'
 
         # load annotation
-        root_path = '/content/timeception/data/charades'
-        annotation_path = '%s/annotation/video_annotation.pkl' % (root_path)
+        root_path = '/content/drive/My Drive/Charades_timeception/Charades'
+        annotation_path = '%s/video_annotation.pkl' % (root_path)
         #/content/timeception/data/charades/annotation/video_annotation.pkl
         if self.is_training:
             (video_names, y, _, _) = utils.pkl_load(annotation_path)
