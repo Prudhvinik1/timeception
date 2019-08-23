@@ -113,7 +113,10 @@ def __define_data_generator(is_training):
     batch_size = batch_size_tr if is_training else batch_size_te
 
     # size and name of feature
-    feature_name = 'features_%s_%s_untrimmed_%sframes' % (backbone_model_name, backbone_feature_name, n_timesteps)
+    #/content/drive/My Drive/Charades_timeception/Charades/features_i3d_charades_rgb_mixed_5c_untrimmed_128_frames
+    #feature_name = 'features_%s_%s_untrimmed_%s_frames' % (backbone_model_name, backbone_feature_name, n_timesteps)
+    feature_name = 'features_i3d_charades_rgb_mixed_5c_untrimmed_128_frames'
+    
     c, h, w = utils.get_model_feat_maps_info(backbone_model_name, backbone_feature_name)
     feature_dim = (n_timesteps, h, w, c)
 
