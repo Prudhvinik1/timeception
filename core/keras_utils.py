@@ -153,10 +153,11 @@ class SaveCallback(Callback):
     def __init__(self, dataset_name, model_name):
         self.model_name = model_name
         print(self.model_name)
-        model_root_path = './data/%s/models' % (dataset_name)
-        assert os.path.exists(model_root_path)
-
-        model_root_path = './data/%s/models/%s' % (dataset_name, model_name)
+        print(dataset_name)
+        #model_root_path = './data/%s/models' % (dataset_name)
+        #assert os.path.exists(model_root_path)
+        #/content/drive/My Drive/Charades_timeception
+        model_root_path = '/content/drive/My Drive/Charades_timeception/data/%s/models/%s' % (dataset_name, model_name)
         if not os.path.exists(model_root_path):
             os.mkdir(model_root_path)
 
