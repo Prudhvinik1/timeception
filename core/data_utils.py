@@ -251,8 +251,8 @@ class DatasetCharades(torch.utils.data.Dataset):
         self.dataset_name = 'charades'
 
         # load annotation
-        root_path = '/content/timeception/data/charades'
-        annotation_path = '%s/annotation/video_annotation.pkl' % (root_path)
+        root_path = '/content/drive/My Drive/Charades_timeception/Charades'
+        annotation_path = '%s/video_annotation.pkl' % (root_path)
         if self.is_training:
             (video_names, y, _, _) = utils.pkl_load(annotation_path)
         else:
@@ -266,6 +266,7 @@ class DatasetCharades(torch.utils.data.Dataset):
         y = y.astype(np.float32)
 
         # convert relative to root pathes
+        
         feats_path = np.array(['%s/%s/%s.pkl' % (root_path, feature_name, p) for p in video_names])
 
         n_samples = len(y)
